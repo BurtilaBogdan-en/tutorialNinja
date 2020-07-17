@@ -23,7 +23,7 @@ public class TestBaseClass {
 	public void tearDownDriver() throws Exception {
 		Thread.sleep( 2000 );
 //		takeSnapShot( driver, "C://Users//bburtila//Desktop/ss.jpeg" );
-//		driver.quit();
+		driver.quit();
 	}
 
 //	public void takeSnapShot( WebDriver webdriver, String fileWithPath ) throws Exception {

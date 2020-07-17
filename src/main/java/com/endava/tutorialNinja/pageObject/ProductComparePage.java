@@ -39,4 +39,10 @@ public class ProductComparePage {
 		return comparisonNames;
 	}
 
+	public int getNumberOfProductsInComparison(){
+
+			return getProductNameInComparison().size();
+
+	}
+
 }

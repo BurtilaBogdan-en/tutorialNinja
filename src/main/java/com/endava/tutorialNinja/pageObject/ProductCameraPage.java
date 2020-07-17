@@ -34,9 +34,9 @@ public class ProductCameraPage {
 		WebDriverWait webDriverWait = new WebDriverWait( driver,5 );
 		List<WebElement> productCameraListElements = webDriverWait.until( ExpectedConditions.visibilityOfAllElementsLocatedBy( productList ));
 
-		for ( WebElement productcameraElement : productCameraListElements) {
-			if ( Arrays.asList( productCameraNameList ).contains( productcameraElement.findElement( productName ).getText() ));
-			productcameraElement.findElement( addToCompareButton ).click();
+		for ( WebElement productCameraElement : productCameraListElements) {
+			if ( Arrays.asList( productCameraNameList ).contains( productCameraElement.findElement( productName ).getText() ));
+			productCameraElement.findElement( addToCompareButton ).click();
 		}
 	}
 
