@@ -38,7 +38,7 @@ public class AddToComparisonPageTest extends TestBaseClass {
 	}
 
 	@Test
-	public void shoulNotdAddMoreThenFourProductsToComparison(){
+	public void shoulNotdAddMoreThenFourProductsToComparison() throws InterruptedException {
 
 		//GIVEN
 		ProductLaptopsPage productLaptopsPage = new ProductLaptopsPage( driver );
@@ -65,5 +65,7 @@ public class AddToComparisonPageTest extends TestBaseClass {
 
 		//THEN
 		assertThat (productComparePage.getNumberOfProductsInComparison()).isLessThan( toBeAddedProducts.size() );
+		assertThat (productComparePage.getNumberOfProductsInComparison()).isEqualTo( 4 );
+
 	}
 }
