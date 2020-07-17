@@ -1,14 +1,21 @@
 package com.endava.tutorialNinja.pageObject;
 
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 
 import com.endava.tutorialNinja.EnvReader;
 
 public class ProductComparePage {
 
-	public static final String baseUrl = EnvReader.getBaseUrl() + "compare";
+	private static final String baseUrl = EnvReader.getBaseUrl() + "compare";
 	private WebDriver driver;
+	private By comparisonProductName = By.cssSelector( "tbody:nth-child(2) > tr:nth-child(1) > td  a" );
 
 
 
@@ -21,6 +28,15 @@ public class ProductComparePage {
 	}
 
 
+	public Set getProductNameInComparison () {
+		List <WebElement> comparisonNamesListElements = driver.findElements( comparisonProductName );
+		Set<String> comparisonNames = new TreeSet<>(  );
 
+		for ( WebElement comparisonNameElement : comparisonNamesListElements) {
+			comparisonNames.add( comparisonNameElement.getText() );
+
+		}
+		return comparisonNames;
+	}
 
 }
