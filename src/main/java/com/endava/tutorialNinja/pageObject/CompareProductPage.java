@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 
 import com.endava.tutorialNinja.EnvReader;
 
-public class ProductComparePage {
+public class CompareProductPage {
 
 	private static final String baseUrl = EnvReader.getBaseUrl() + "compare";
 	private WebDriver driver;
@@ -19,7 +19,7 @@ public class ProductComparePage {
 
 
 
-	public ProductComparePage( WebDriver driver ) {
+	public CompareProductPage( WebDriver driver ) {
 		this.driver = driver;
 	}
 

@@ -10,18 +10,18 @@ import java.util.TreeSet;
 import org.junit.jupiter.api.Test;
 
 import com.endava.tutorialNinja.pageObject.ProductCameraPage;
-import com.endava.tutorialNinja.pageObject.ProductComparePage;
+import com.endava.tutorialNinja.pageObject.CompareProductPage;
 import com.endava.tutorialNinja.pageObject.ProductLaptopsPage;
 
 public class AddToComparisonPageTest extends TestBaseClass {
 
 
 	@Test
-	public void shouldAddProductToComparison(){
+	public void shouldAddProductToComparison() throws InterruptedException {
 
 		//GIVEN
 		ProductCameraPage productCameraPage = new ProductCameraPage( driver );
-		ProductComparePage productComparePage = new ProductComparePage( driver );
+		CompareProductPage compareProductPage = new CompareProductPage( driver );
 		productCameraPage.load();
 
 		//WHEN
@@ -33,16 +33,16 @@ public class AddToComparisonPageTest extends TestBaseClass {
 		productCameraPage.accessProductComparePage();
 
 		//THEN
-		assertThat(toBeAddedProducts.equals( productComparePage.getProductNameInComparison() ));
+		assertThat(toBeAddedProducts.equals( compareProductPage.getProductNameInComparison() ));
 
 	}
 
 	@Test
-	public void shoulNotdAddMoreThenFourProductsToComparison() throws InterruptedException {
+	public void shouldNotdAddMoreThenFourProductsToComparison() throws InterruptedException {
 
 		//GIVEN
 		ProductLaptopsPage productLaptopsPage = new ProductLaptopsPage( driver );
-		ProductComparePage productComparePage = new ProductComparePage( driver );
+		CompareProductPage compareProductPage = new CompareProductPage( driver );
 		productLaptopsPage.load();
 
 
@@ -64,8 +64,8 @@ public class AddToComparisonPageTest extends TestBaseClass {
 		productLaptopsPage.accessProductComparePage();
 
 		//THEN
-		assertThat (productComparePage.getNumberOfProductsInComparison()).isLessThan( toBeAddedProducts.size() );
-		assertThat (productComparePage.getNumberOfProductsInComparison()).isEqualTo( 4 );
+		assertThat ( compareProductPage.getNumberOfProductsInComparison()).isLessThan( toBeAddedProducts.size() );
+		assertThat ( compareProductPage.getNumberOfProductsInComparison()).isEqualTo( 4 );
 
 	}
 }
